@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inside Factor | 신한금융 밸류업 2.0</title>
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css');
+        :root { --primary: #0046ff; --dark: #051c48; --text: #334155; --border: #e2e8f0; }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Pretendard', sans-serif; background: #fff; color: var(--text); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 720px; margin: 0 auto; padding: 60px 20px; }
+
+        /* 1. 타이틀 */
+        .article-header { margin-bottom: 40px; }
+        .category { color: var(--primary); font-weight: 800; font-size: 14px; letter-spacing: 2px; display: block; margin-bottom: 12px; }
+        .article-title { font-size: clamp(26px, 5vw, 34px); font-weight: 900; color: var(--dark); line-height: 1.3; letter-spacing: -1px; word-break: keep-all; }
+        .meta-info { margin-top: 20px; font-size: 14px; color: #94a3b8; border-top: 1px solid var(--border); padding-top: 20px; }
+
+        /* 2. 브리핑 카드: 밸류업 2.0 핵심 요약 */
+        .briefing-section { margin-bottom: 50px; }
+        .briefing-card { background: #f0f7ff; border-radius: 20px; padding: 30px; display: flex; flex-direction: column; gap: 25px; border: 1px solid #e0ebff; }
+        .b-column { display: flex; flex-direction: column; gap: 4px; }
+        .b-label { font-size: 11px; font-weight: 900; color: var(--primary); letter-spacing: 1.5px; }
+        .b-title { font-size: 18px; font-weight: 800; color: var(--dark); }
+        .b-desc { font-size: 15px; color: #475569; line-height: 1.5; }
+        .b-desc b { color: var(--dark); }
+
+        /* 3 & 5. 본문 */
+        .content-area p { font-size: 18px; margin-bottom: 25px; color: #334155; text-align: justify; }
+        .content-area b { color: #000; }
+        .content-area h2 { font-size: 22px; font-weight: 800; color: var(--dark); margin: 40px 0 20px 0; border-left: 4px solid var(--primary); padding-left: 15px; }
+        
+        /* 인용구 */
+        .quote-container { margin: 45px 0; padding: 35px; background: #f8fafc; border-radius: 12px; border-left: 5px solid var(--primary); }
+        .quote-text { font-size: 17px; font-weight: 600; color: #1e293b; line-height: 1.8; margin-bottom: 10px; word-break: keep-all; }
+        .quote-author { font-size: 15px; font-weight: 800; color: var(--dark); text-align: right; }
+
+        /* 4. 이미지 영역 */
+        .poster-section { margin: 60px 0; text-align: center; }
+        .p-label { font-size: 11px; font-weight: 900; color: #cbd5e1; letter-spacing: 2px; margin-bottom: 15px; display: block; }
+        .main-poster { width: 100%; max-width: 520px; height: auto; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); cursor: zoom-in; }
+
+        /* 6. 데이터 요약 표 */
+        .summary-box { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 30px; margin-top: 50px; }
+        .summary-box h4 { font-size: 18px; font-weight: 900; margin-bottom: 20px; color: var(--dark); border-bottom: 2px solid var(--primary); display: inline-block; }
+        .info-table { width: 100%; border-collapse: collapse; }
+        .info-table tr { border-bottom: 1px solid #f1f5f9; }
+        .info-table td { padding: 15px 0; font-size: 16px; }
+        .info-table .label { font-weight: 800; color: #64748b; width: 140px; }
+        .info-table .val { color: var(--dark); font-weight: 600; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header class="article-header">
+        <span class="category">FINANCE & VALUE-UP</span>
+        <h1 class="article-title">신한금융, 한 단계 진화한 주주환원 전략 ‘신한 밸류업 2.0’ 발표</h1>
+        <div class="meta-info">인사이드 팩터 편집팀 · 2026.04.23</div>
+    </header>
+
+    <section class="briefing-section">
+        <div class="briefing-card">
+            <div class="b-column">
+                <span class="b-label">VALUE-UP 2.0</span>
+                <div class="b-title">"ROE·성장률 연계 주주환원"</div>
+                <div class="b-desc">예측 가능성 높인 <b>상한 없는 주주환원율</b> 산식 도입 / 2028년까지 3개년 적용</div>
+            </div>
+            <div class="b-column">
+                <span class="b-label">SHAREHOLDER RETURN</span>
+                <div class="b-title">DPS 매년 10% 이상 확대</div>
+                <div class="b-desc">올해부터 <b>3년간 비과세 배당</b> 실시 / 분기 균등배당 기조 유지</div>
+            </div>
+            <div class="b-column">
+                <span class="b-label">1Q PERFORMANCE</span>
+                <div class="b-title">분기 당기순이익 1.6조원 돌파</div>
+                <div class="b-desc">전년 동기 대비 <b>9.0% 성장</b> / 증권 등 비은행 부문 실적 견인</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="content-area">
+        <p>신한금융그룹(회장 진옥동)은 23일 새로운 기업가치 제고 계획인 <b>‘신한 Value-Up 2.0’</b>을 발표하며 주주가치 극대화를 향한 강력한 의지를 드러냈다. 이번 계획은 기존의 절대 목표 중심에서 벗어나 ROE 개선과 주주환원 정책을 유기적으로 연결한 것이 특징이다.</p>
+        
+        <h2>예측 가능한 '상한 없는 주주환원'</h2>
+        <p>신한금융은 ROE 제고 속도에 연동하는 주주환원율 산식을 전격 도입했다. 구체적인 산식은 <b>'1 - (성장률 / 목표 ROE)'</b>로, 예를 들어 성장률 4~5%, ROE 10% 달성 시 주주환원율은 50~60% 수준이 된다. 이를 통해 주주들에게 명확하고 예측 가능한 환원 지표를 제공하겠다는 방침이다.</p>
+        <p>특히 2026년 결산부터 3년간 비과세 배당을 실시하며, 주당배당금(DPS)을 매년 10% 이상 확대하는 공격적인 정책도 포함됐다. 자사주 매입 및 소각 또한 PBR 개선 수준에 따라 탄력적으로 병행할 예정이다.</p>
+    </div>
+
+<section class="poster-section">
+    <span class="p-label">VALUE-UP ROADMAP</span>
+    <img src="valueup_poster.png" 
+         class="main-poster" 
+         onclick="openModal(this.src)" 
+         onerror="this.style.display='none'; console.log('이미지 경로를 확인하세요');">
+    <p class="p-hint">🔍 좌측(기존)과 우측(개편)의 주주환원 논리 변화를 확인하세요 (클릭 시 확대)</p>
+</section>
+
+    <div class="content-area">
+        <h2>1분기 당기순이익 1조 6,226억... 역대급 실적</h2>
+        <p>밸류업 전략의 토대가 되는 기초 체력도 탄탄하다. 신한금융의 1분기 당기순이익은 전년 동기 대비 9.0% 증가한 <b>1조 6,226억원</b>을 기록했다. 증권 부문 순이익이 전년 대비 167.4% 급증하는 등 비은행 부문의 약진이 돋보였다.</p>
+        <p>영업이익경비율(CIR)은 36.7%로 안정적인 수준을 유지했으며, 보통주자본(CET1)비율 역시 13.19%를 기록해 금리 및 환율 변동에도 충분한 자본 버퍼를 확보한 것으로 나타났다.</p>
+
+        <div class="quote-container">
+            <p class="quote-text">“단순히 총주주환원율 목표를 제시하는 경쟁에서 벗어나, ROE 제고를 통한 본질적 기업가치 증대와 주주환원이 유기적으로 연결되는 체계를 구축하는 것이 진정한 주주가치 제고다.”</p>
+            <p class="quote-author">신한지주 재무부문 장정훈 부사장</p>
+        </div>
+    </div>
+
+    <div class="summary-box">
+        <h4>SHINHAN VALUE-UP SUMMARY</h4>
+        <table class="info-table">
+            <tr><td class="label">전략 명칭</td><td class="val">신한 Value-Up 2.0 (2026~2028)</td></tr>
+            <tr><td class="label">주주환원율 산식</td><td class="val">1 - (성장률 / 목표 ROE) *상한 없음</td></tr>
+            <tr><td class="label">배당 정책</td><td class="val">비과세 배당 도입, DPS 매년 10%+ 확대</td></tr>
+            <tr><td class="label">1분기 실적</td><td class="val">당기순이익 1조 6,226억 (YoY +9.0%)</td></tr>
+        </table>
+    </div>
+</div>
+
+<div id="posterModal" class="modal" onclick="closeModal()">
+    <span class="close-btn">&times;</span>
+    <img class="modal-content" id="fullPoster">
+</div>
+
+<style>
+    /* 모달 기본 스타일 */
+    .modal {
+        display: none; /* 기본은 숨김 */
+        position: fixed; 
+        z-index: 10000; /* 최상단 배치 */
+        left: 0; top: 0;
+        width: 100%; height: 100%;
+        background-color: rgba(0, 0, 0, 0.9); /* 배경 어둡게 */
+        cursor: zoom-out;
+    }
+    /* 확대 이미지 스타일 */
+    .modal-content {
+        margin: auto;
+        display: block;
+        max-width: 95%;
+        max-height: 90vh;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 8px;
+        box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    }
+    /* 닫기 버튼 */
+    .close-btn {
+        position: absolute;
+        top: 20px; right: 35px;
+        color: #fff;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+</style>
+
+<script>
+    // 모달 열기 함수
+    function openModal(src) {
+        const modal = document.getElementById("posterModal");
+        const fullPoster = document.getElementById("fullPoster");
+        
+        if (modal && fullPoster) {
+            modal.style.display = "block";
+            fullPoster.src = src;
+            document.body.style.overflow = "hidden"; // 배경 스크롤 방지
+        }
+    }
+
+    // 모달 닫기 함수
+    function closeModal() {
+        document.getElementById("posterModal").style.display = "none";
+        document.body.style.overflow = "auto"; // 배경 스크롤 허용
+    }
+
+    // ESC 키 누르면 닫히는 센스
+    document.addEventListener('keydown', function(e) {
+        if (e.key === "Escape") {
+            closeModal();
+        }
+    });
+</script>
+
+</body>
+</html>

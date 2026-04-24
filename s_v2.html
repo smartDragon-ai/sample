@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inside Factor | 신한지주 밸류업 2.0</title>
+    <style>
+        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css');
+        :root { 
+            --primary: #0046ff; 
+            --dark: #051c48; 
+            --text: #334155; 
+            --card-1: #eef2ff; /* 연한 블루 (웹툰풍) */
+            --card-2: #fdf2f8; /* 연한 핑크 */
+            --card-3: #f0fdf4; /* 연한 그린 */
+            --border: #e2e8f0; 
+        }
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Pretendard', sans-serif; background: #fff; color: var(--text); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
+
+        /* 1. 제목 영역 (심플하게 노출) */
+        .article-header { margin-bottom: 40px; text-align: left; }
+        .category { color: var(--primary); font-weight: 800; font-size: 14px; letter-spacing: 2px; display: block; margin-bottom: 12px; }
+        .article-title { font-size: clamp(26px, 5vw, 36px); font-weight: 900; color: var(--dark); line-height: 1.3; letter-spacing: -1.5px; word-break: keep-all; }
+
+        /* 2. 웹툰 카드형 브리핑 (친근한 스타일) */
+        .webtoon-briefing { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); 
+            gap: 20px; 
+            margin-bottom: 60px;
+        }
+        .wt-card {
+            padding: 30px;
+            border-radius: 24px;
+            border: 2px solid #000; /* 웹툰 특유의 굵은 라인 */
+            box-shadow: 6px 6px 0px #000; /* 딱딱하지 않은 그림자 */
+            transition: transform 0.2s ease;
+        }
+        .wt-card:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0px #000; }
+        
+        .wt-card.c1 { background-color: var(--card-1); }
+        .wt-card.c2 { background-color: var(--card-2); }
+        .wt-card.c3 { background-color: var(--card-3); }
+
+        .wt-label { font-size: 12px; font-weight: 900; color: #000; text-transform: uppercase; margin-bottom: 10px; display: inline-block; border-bottom: 2px solid #000; }
+        .wt-title { font-size: 19px; font-weight: 800; color: #000; line-height: 1.4; margin-bottom: 10px; word-break: keep-all; }
+        .wt-desc { font-size: 15px; color: #334155; font-weight: 500; line-height: 1.5; }
+        .wt-desc b { color: var(--primary); }
+
+        /* 3. 본문 영역 */
+        .article-body { max-width: 720px; margin: 0 auto; }
+        .meta-info { font-size: 14px; color: #94a3b8; margin-bottom: 40px; }
+
+        .content-area p { font-size: 18px; margin-bottom: 25px; color: #334155; text-align: justify; }
+        .content-area h2 { font-size: 24px; font-weight: 800; color: var(--dark); margin: 50px 0 25px 0; border-left: 5px solid var(--primary); padding-left: 15px; }
+        
+        /* 인용구 스타일 */
+        .quote-container { margin: 50px 0; padding: 40px; background: #f8fafc; border-radius: 16px; border: 1px solid var(--border); }
+        .quote-text { font-size: 18px; font-weight: 600; color: #1e293b; line-height: 1.8; margin-bottom: 20px; word-break: keep-all; }
+        .quote-author { font-size: 16px; font-weight: 800; color: var(--dark); text-align: right; }
+
+        /* 4. 포스터 영역 */
+        .poster-section { margin: 70px 0; text-align: center; }
+        .main-poster { width: 100%; max-width: 550px; border-radius: 16px; border: 2px solid #000; box-shadow: 10px 10px 0px rgba(0,0,0,0.05); cursor: zoom-in; }
+        .p-hint { font-size: 14px; color: #94a3b8; margin-top: 20px; }
+
+        /* 5. 요약 표 */
+        .summary-box { background: #fff; border: 2px solid #000; border-radius: 20px; padding: 30px; margin-top: 60px; box-shadow: 6px 6px 0px rgba(0,0,0,0.05); }
+        .info-table { width: 100%; border-collapse: collapse; }
+        .info-table td { padding: 15px 0; border-bottom: 1px solid #eee; }
+        .info-table .label { font-weight: 800; color: #64748b; width: 150px; }
+        .info-table .val { color: var(--dark); font-weight: 600; text-align: right; }
+
+        /* 모달 */
+        .modal { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); cursor: zoom-out; }
+        .modal-content { margin: auto; display: block; max-width: 95%; max-height: 90vh; position: relative; top: 50%; transform: translateY(-50%); border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header class="article-header">
+        <span class="category">INSIDE FACTOR SPECIAL</span>
+        <h1 class="article-title">신한지주, 업계 선두로 도약하기 위한 한 단계 진화한 ‘밸류업 2.0’ 발표</h1>
+    </header>
+
+    <section class="webtoon-briefing">
+        <div class="wt-card c1">
+            <span class="wt-label">#업계선두_전략</span>
+            <div class="wt-title">"주주환원에 '상한'은 없습니다!"</div>
+            <p class="wt-desc">기존 목표제를 넘어 <b>ROE 성과에 연동</b>되는 진화된 환원 공식을 도입했어요.</p>
+        </div>
+        <div class="wt-card c2">
+            <span class="wt-label">#주주님_위해</span>
+            <div class="wt-title">"매년 배당금이 10%씩 쑥쑥"</div>
+            <p class="wt-desc"><b>3년간 비과세 배당</b>은 물론, 자사주 매입과 소각도 더 탄력적으로 진행합니다.</p>
+        </div>
+        <div class="wt-card c3">
+            <span class="wt-label">#든든한_실적</span>
+            <div class="wt-title">"1분기 순이익 1.6조 돌파!"</div>
+            <p class="wt-desc">역대급 실적이라는 탄탄한 기초 체력이 <b>밸류업 2.0</b>을 든든하게 뒷받침하죠.</p>
+        </div>
+    </section>
+
+    <div class="article-body">
+        <div class="meta-info">인사이드 팩터 편집팀 · 2026.04.23</div>
+
+        <div class="content-area">
+            <p>신한지주(회장 진옥동)는 23일, 기존의 기업가치 제고 계획을 한 단계 업그레이드한 <b>‘신한 Value-Up 2.0’</b>을 발표했다. 이번 발표는 신한지주가 국내 금융업계의 **'업계 선두'**로서 주주가치 제고를 위한 가장 진화하고 현실적인 로드맵을 제시했다는 점에서 의미가 크다.</p>
+            
+            <h2>'상한 없는' 성과 연동 주주환원 공식</h2>
+            <p>핵심은 ROE 개선 속도에 따라 총주주환원율을 결정하는 공식의 도입이다. 구체적인 산식은 <b>'1 - (성장률 / 목표 ROE)'</b>로, 성장률 4~5%와 ROE 10%를 가정할 때 총주주환원율은 50~60% 수준이 된다. 이를 통해 주주들에게 명확하고 예측 가능한 환원 지표를 제공하는 동시에, ROE 개선에 대한 강력한 의지를 드러냈다.</p>
+        </div>
+
+        <section class="poster-section">
+            <img src="valueup_poster.png" class="main-poster" onclick="openModal(this.src)">
+            <p class="p-hint">🔍 신한 밸류업 2.0 상세 로드맵 (클릭 시 확대)</p>
+        </section>
+
+        <div class="content-area">
+            <h2>공격적인 주주환원... DPS 매년 10%+ 증대</h2>
+            <p>신한지주는 2026년 결산부터 3년간 비과세 배당을 실시하며, 주당배당금(DPS)을 매년 10% 이상 확대하는 파격적인 정책을 내놨다. 또한, PBR 개선 수준에 따라 자사주 매입 및 소각을 탄력적으로 병행하여 총주주환원율을 극대화할 계획이다.</p>
+
+            <div class="quote-container">
+                <p class="quote-text">“단순히 총주주환원율 목표를 제시하는 경쟁에서 벗어나, ROE 제고를 통한 본질적 기업가치 증대와 주주환원이 유기적으로 연결되는 체계를 구축하는 것이 업계 선두로서 지향하는 진정한 주주가치 제고다.”</p>
+                <p class="quote-author">신한지주 재무부문 장정훈 부사장</p>
+            </div>
+
+            <p>한편, 이러한 과감한 전략의 배경에는 탄탄한 기초 체력이 자리 잡고 있다. 신한지주의 1분기 당기순이익은 <b>1조 6,226억원</b>으로 전년 동기 대비 9.0% 증가하며 업계 선두다운 안정적인 재무 구조를 과시했다.</p>
+        </div>
+
+        <div class="summary-box">
+            <table class="info-table">
+                <tr><td class="label">전략 명칭</td><td class="val">Value-Up 2.0 (2026~2028)</td></tr>
+                <tr><td class="label">배당 정책</td><td class="val">비과세 배당, DPS 매년 10%+ 확대</td></tr>
+                <tr><td class="label">1분기 실적</td><td class="val">당기순이익 1조 6,226억 (YoY +9.0%)</td></tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="posterModal" class="modal" onclick="closeModal()"><img class="modal-content" id="fullPoster"></div>
+
+<script>
+    function openModal(src) {
+        var modal = document.getElementById("posterModal");
+        var fullImg = document.getElementById("fullPoster");
+        if (modal && fullImg) { modal.style.display = "block"; fullImg.src = src; document.body.style.overflow = "hidden"; }
+    }
+    function closeModal() { document.getElementById("posterModal").style.display = "none"; document.body.style.overflow = "auto"; }
+    document.addEventListener('keydown', function(e) { if (e.key === "Escape") closeModal(); });
+</script>
+
+</body>
+</html>
